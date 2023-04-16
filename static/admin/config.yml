@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "players" # Used in routes, e.g., /admin/collections/blog
+    label: "Players" # Used in the UI
+    folder: "content/players" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{day}}-{{month}}-{{year}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - {label: "Gamer Tag", name: "gamerTag", widget: "string", required: true}
+      - {label: "IRL Name", name: "IRL", widget: "string", required: false}
+      - {label: "Player Picture", name: "playerPicture", widget: "image", required: false}
+      - {label: "Twitch Link", name: "twitch", widget: "string", required: false}
+      - {label: "Twitter Link", name: "twitter", widget: "string", required: false}
+      - {label: "Instagram Link", name: "instagram", widget: "string", required: false}
