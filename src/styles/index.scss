@@ -1,0 +1,25 @@
+@import "reset";
+@import "variables";
+@import "header";
+
+body {
+  background: $base-color;
+  font-family: $base-font;
+  font-size: 24px;
+}
+
+.box {
+  border: 5px solid black;
+}
+
+.b1 {
+  background: $base-color;
+}
+
+.b2 {
+  background: $secondary-color;
+}
+
+.b3 {
+  background: $third-color;
+}

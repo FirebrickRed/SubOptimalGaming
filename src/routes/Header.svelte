@@ -1,44 +1,57 @@
 <script>
-	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
-	import github from '$lib/images/github.svg';
+	import { page } from "$app/stores";
+	import "../styles/index.scss";
+
+	import { onMount } from "svelte";
+	let showMobileMenu = false;
+
+	const handleMobileIconClick = () => (showMobileMenu = !showMobileMenu);
+
+	const mediaQueryHandler = (e) => {
+		// Reset mobile state
+		if (!e.matches) {
+			showMobileMenu = false;
+		}
+	};
+
+	onMount(() => {
+		const mediaListener = window.matchMedia("(max-width: 767px)");
+
+		mediaListener.addListener(mediaQueryHandler);
+	});
 </script>
 
 <header>
-	<div class="corner">
+	<!-- <div class="corner">
 		<a href="https://kit.svelte.dev">
 			<img src={logo} alt="SvelteKit" />
 		</a>
-	</div>
+	</div> -->
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">Home</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
-				<a href="/about">About</a>
-			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">Sverdle</a>
-			</li>
+	<nav class="nav">
+		<button
+			class={`mobile-icon${showMobileMenu ? " active" : ""}`}
+			on:click={handleMobileIconClick}
+			><span class="left-bar" />
+			<span class="right-bar" /></button>
+		<!-- <button class="nav-toggle" /> -->
+		<ul class={`${showMobileMenu ? "active" : ""}`}>
+			<li><a href="/about/">about</a></li>
+			<li><a href="/news/">news</a></li>
+			<li class="mid"><a href="/">Logo</a></li>
+			<li><a href="/players/">players</a></li>
+			<li><a href="/teams/">teams</a></li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
 
-	<div class="corner">
+	<!-- <div class="corner">
 		<a href="https://github.com/sveltejs/kit">
 			<img src={github} alt="GitHub" />
 		</a>
-	</div>
+	</div> -->
 </header>
 
-<style>
+<!-- <style>
 	header {
 		display: flex;
 		justify-content: space-between;
@@ -126,4 +139,4 @@
 	a:hover {
 		color: var(--color-theme-1);
 	}
-</style>
+</style> -->

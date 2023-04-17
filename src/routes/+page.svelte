@@ -9,14 +9,14 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
+<section class="welcome">
 	<h1>
-		<span class="welcome">
+		<!-- <span class="welcome">
 			<picture>
 				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
+				 <img src={welcome_fallback} alt="Welcome" /> 
 			</picture>
-		</span>
+		</span> -->
 
 		to your new<br />SvelteKit app
 	</h1>
@@ -28,7 +28,7 @@
 	<Counter />
 </section>
 
-<style>
+<!-- <style>
 	section {
 		display: flex;
 		flex-direction: column;
@@ -56,4 +56,4 @@
 		top: 0;
 		display: block;
 	}
-</style>
+</style> -->

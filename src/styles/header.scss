@@ -1,0 +1,194 @@
+// I need a function that gets the height of the black trapezoid and white trapizoid
+$baseHeight: 50px;
+
+@mixin temp($isOutline) {
+  @if $isOutline {
+    border-image: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(46,46,46,1) 30%, rgba(28,28,28,1) 50%, rgba(46,46,46,1) 70%, rgba(0,0,0,1) 100%);
+    border-style: solid;
+    border-width: 50px;
+    // border-top: $baseHeight solid #000;
+    // border-left: $baseHeight+2px/2 solid transparent;
+    // border-right: $baseHeight+2px/2 solid transparent;
+    z-index: -2;
+  } @else {
+    // $baseHeight: $baseHeight - 5px;
+    // border-top: $baseHeight+2px solid #aaa;
+    // border-left: $baseHeight+2px/2 solid transparent;
+    // border-right: $baseHeight+2px/2 solid transparent;
+    // z-index: -1;
+  }
+
+  content: '';
+  top: 0;
+  left: 50%;
+  width: 75vw;
+  margin: auto;
+  position: absolute;
+  transform: translate(-50%);
+}
+
+// .nav:before {
+//   @include temp(true);
+// }
+// .nav:after {
+//   @include temp(false);
+// }
+
+// .trap {
+//   -webkit-box-sizing: content-box;
+//   -moz-box-sizing: content-box;
+//   box-sizing: content-box;
+//   height: 0;
+//   border: 80px solid rgba(0,0,0,0);
+//   border-top: 0 solid;
+//   border-bottom: 100px solid rgba(1, 1, 1, .4);
+//   -webkit-border-radius: 20px 20px 0 0;
+//   border-radius: 20px 20px 0 0;
+//   color: rgba(0,0,0,0.7);
+//   -o-text-overflow: clip;
+//   text-overflow: clip;
+//   -webkit-transform: rotateX(180deg);
+//   transform: rotateX(180deg);
+//   margin-top:-53px;
+//   width: 700px;
+//   position: relative;
+//   transition: all 0.7s ease;
+//   // padding-left:7%;
+// }
+
+// .nav {
+//   margin-bottom: 5px;
+//   ul{
+//     // list-style: none;
+//     // margin: auto;
+//     // padding: $baseHeight/4 0;
+//     // text-align: center;
+//     // width: 75vw;
+//     // display: flex;
+//     // justify-content: space-between;
+
+//     li {
+//       display: inline;
+//       text-transform: uppercase;
+//       text-shadow: 1px 1px 9px #faf;
+//     }
+
+//     .mid {
+//       padding: 0 $baseHeight;
+//     }
+//   }
+// }
+
+
+
+// below 1024 use mobile
+$background: lightcoral;
+$easing: cubic-bezier(.25,1.7,.35,.8);
+$duration: 0.5s;
+.mobile-icon {
+  width: 5em;
+  display: block;
+  padding: 0.5em;
+  position: relative;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 2em;
+  margin-left: auto;
+  margin-right: 2em;
+  z-index: 101;
+
+  .left-bar {
+    position: absolute;
+    background-color: transparent;
+    top: 0;
+    left:0;
+    width: 40px;
+    height: 10px;
+    display: block;
+    transform: rotate(35deg);
+    float: right;
+    border-radius: 2px;
+    &:after {
+      content:"";
+      background-color: white;
+      width: 40px;
+      height: 10px;
+      display: block;
+      float: right;
+      border-radius: 6px 10px 10px 6px;
+      transition: all $duration $easing;
+      z-index: -1;
+    }
+  }
+  
+  .right-bar {
+    position: absolute;
+    background-color: transparent;
+    top: 0px;
+    left:26px;
+    width: 40px;
+    height: 10px;
+    display: block;
+    transform: rotate(-35deg);
+    float: right;
+    border-radius: 2px;
+    &:after {
+      content:"";
+      background-color: white;
+      width: 40px;
+      height: 10px;
+      display: block;
+      float: right;
+      border-radius: 10px 6px 6px 10px;
+      transition: all $duration $easing;
+      z-index: -1;
+    }
+  }
+}
+
+.active {
+  .left-bar:after {
+    transform-origin: center center;
+    transform: rotate(-70deg);
+  }
+  .right-bar:after {
+    transform-origin: center center;
+    transform: rotate(70deg);
+  }
+
+}
+
+.nav {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  // background: blue;
+  font-size: 6vw;
+  text-transform: uppercase;
+  display: flex;
+  // justify-content: center;
+  z-index: 100;
+  flex-direction: column;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -100vh;
+    background: blue;
+  
+    li {
+      text-align: center;
+    }
+  }
+
+  ul.active {
+    top: 0;
+  }
+}
+
+
+// Above 1024 use desktop
