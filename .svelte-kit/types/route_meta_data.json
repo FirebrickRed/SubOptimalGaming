@@ -5,10 +5,19 @@
 	"/about": [
 		"src/routes/about/+page.ts"
 	],
+	"/news": [
+		"src/routes/news/+page.ts"
+	],
+	"/players": [
+		"src/routes/players/+page.ts"
+	],
 	"/sverdle": [
 		"src/routes/sverdle/+page.server.ts"
 	],
 	"/sverdle/how-to-play": [
 		"src/routes/sverdle/how-to-play/+page.ts"
+	],
+	"/teams": [
+		"src/routes/teams/+page.ts"
 	]
 }
