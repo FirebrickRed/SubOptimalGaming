@@ -7,17 +7,8 @@
 
 	const handleMobileIconClick = () => (showMobileMenu = !showMobileMenu);
 
-	const mediaQueryHandler = (e) => {
-		// Reset mobile state
-		if (!e.matches) {
-			showMobileMenu = false;
-		}
-	};
-
 	onMount(() => {
 		const mediaListener = window.matchMedia("(max-width: 767px)");
-
-		mediaListener.addListener(mediaQueryHandler);
 	});
 </script>
 
@@ -36,11 +27,11 @@
 			<span class="right-bar" /></button>
 		<!-- <button class="nav-toggle" /> -->
 		<ul class={`${showMobileMenu ? "active" : ""}`}>
-			<li><a href="/about/">about</a></li>
-			<li><a href="/news/">news</a></li>
-			<li class="mid"><a href="/">Logo</a></li>
-			<li><a href="/players/">players</a></li>
-			<li><a href="/teams/">teams</a></li>
+			<li><a href="/about/" on:click={handleMobileIconClick}>about</a></li>
+			<li><a href="/news/" on:click={handleMobileIconClick}>news</a></li>
+			<li class="mid"><a href="/" on:click={handleMobileIconClick}>Logo</a></li>
+			<li><a href="/players/" on:click={handleMobileIconClick}>players</a></li>
+			<li><a href="/teams/" on:click={handleMobileIconClick}>teams</a></li>
 		</ul>
 	</nav>
 

@@ -85,14 +85,15 @@ $baseHeight: 50px;
 $background: lightcoral;
 $easing: cubic-bezier(.25,1.7,.35,.8);
 $duration: 0.5s;
+$navIconWidth: 30px;
 .mobile-icon {
-  width: 5em;
+  width: 3em;
   display: block;
   padding: 0.5em;
   position: relative;
   cursor: pointer;
   border-radius: 4px;
-  margin-top: 2em;
+  margin-top: 1.5em;
   margin-left: auto;
   margin-right: 2em;
   z-index: 101;
@@ -102,7 +103,7 @@ $duration: 0.5s;
     background-color: transparent;
     top: 0;
     left:0;
-    width: 40px;
+    width: $navIconWidth;
     height: 10px;
     display: block;
     transform: rotate(35deg);
@@ -111,7 +112,7 @@ $duration: 0.5s;
     &:after {
       content:"";
       background-color: white;
-      width: 40px;
+      width: $navIconWidth;
       height: 10px;
       display: block;
       float: right;
@@ -125,8 +126,8 @@ $duration: 0.5s;
     position: absolute;
     background-color: transparent;
     top: 0px;
-    left:26px;
-    width: 40px;
+    left: 18px;
+    width: $navIconWidth;
     height: 10px;
     display: block;
     transform: rotate(-35deg);
@@ -135,7 +136,7 @@ $duration: 0.5s;
     &:after {
       content:"";
       background-color: white;
-      width: 40px;
+      width: $navIconWidth;
       height: 10px;
       display: block;
       float: right;
@@ -162,11 +163,9 @@ $duration: 0.5s;
   height: 100vh;
   width: 100vw;
   position: absolute;
-  // background: blue;
   font-size: 6vw;
   text-transform: uppercase;
   display: flex;
-  // justify-content: center;
   z-index: 100;
   flex-direction: column;
 
@@ -178,10 +177,15 @@ $duration: 0.5s;
     width: 100%;
     position: absolute;
     top: -100vh;
-    background: blue;
+    background: black;
+    transition: top 1s;
   
     li {
       text-align: center;
+      a {
+        color: white;
+        font-size: 10vw;
+      }
     }
   }
 
