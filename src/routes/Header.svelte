@@ -2,44 +2,25 @@
 	import { page } from "$app/stores";
 	import "../styles/index.scss";
 
-	import { onMount } from "svelte";
 	let showMobileMenu = false;
-
 	const handleMobileIconClick = () => (showMobileMenu = !showMobileMenu);
-
-	onMount(() => {
-		const mediaListener = window.matchMedia("(max-width: 767px)");
-	});
 </script>
 
 <header>
-	<!-- <div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
-	</div> -->
-
 	<nav class="nav">
 		<button
 			class={`mobile-icon${showMobileMenu ? " active" : ""}`}
 			on:click={handleMobileIconClick}
 			><span class="left-bar" />
 			<span class="right-bar" /></button>
-		<!-- <button class="nav-toggle" /> -->
 		<ul class={`${showMobileMenu ? "active" : ""}`}>
-			<li><a href="/about/" on:click={handleMobileIconClick}>about</a></li>
-			<li><a href="/news/" on:click={handleMobileIconClick}>news</a></li>
+			<li><a href="/blog/" on:click={handleMobileIconClick}>Blog</a></li>
+			<li><a href="/news/" on:click={handleMobileIconClick}>News</a></li>
 			<li class="mid"><a href="/" on:click={handleMobileIconClick}>Logo</a></li>
-			<li><a href="/players/" on:click={handleMobileIconClick}>players</a></li>
-			<li><a href="/teams/" on:click={handleMobileIconClick}>teams</a></li>
+			<li><a href="/rosters/" on:click={handleMobileIconClick}>Rosters</a></li>
+			<li><a href="/merch/" on:click={handleMobileIconClick}>Merch</a></li>
 		</ul>
 	</nav>
-
-	<!-- <div class="corner">
-		<a href="https://github.com/sveltejs/kit">
-			<img src={github} alt="GitHub" />
-		</a>
-	</div> -->
 </header>
 
 <!-- <style>
