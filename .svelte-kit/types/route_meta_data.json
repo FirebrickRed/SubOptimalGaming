@@ -2,22 +2,22 @@
 	"/": [
 		"src/routes/+page.ts"
 	],
-	"/about": [
-		"src/routes/about/+page.ts"
+	"/blog": [
+		"src/routes/blog/+page.ts"
+	],
+	"/merch": [
+		"src/routes/merch/+page.ts"
 	],
 	"/news": [
 		"src/routes/news/+page.ts"
 	],
-	"/players": [
-		"src/routes/players/+page.ts"
+	"/rosters": [
+		"src/routes/rosters/+page.ts"
 	],
 	"/sverdle": [
 		"src/routes/sverdle/+page.server.ts"
 	],
 	"/sverdle/how-to-play": [
 		"src/routes/sverdle/how-to-play/+page.ts"
-	],
-	"/teams": [
-		"src/routes/teams/+page.ts"
 	]
 }

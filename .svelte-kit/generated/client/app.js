@@ -16,12 +16,12 @@ export const server_loads = [];
 
 export const dictionary = {
 		"/": [2],
-		"/about": [3],
-		"/news": [4],
-		"/players": [5],
-		"/sverdle": [~6],
-		"/sverdle/how-to-play": [7],
-		"/teams": [8]
+		"/blog": [3],
+		"/merch": [4],
+		"/news": [5],
+		"/rosters": [6],
+		"/sverdle": [~7],
+		"/sverdle/how-to-play": [8]
 	};
 
 export const hooks = {

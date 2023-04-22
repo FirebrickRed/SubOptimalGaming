@@ -159,15 +159,29 @@ $navIconWidth: 30px;
 
 }
 
+header {
+  height: 3.5rem;
+}
+
 .nav {
-  height: 100vh;
   width: 100vw;
   position: absolute;
   font-size: 6vw;
   text-transform: uppercase;
   display: flex;
   z-index: 100;
-  flex-direction: column;
+  flex-direction: row;
+  background: black;
+  color: white;
+  transition: height 1s;
+  
+  p {
+    font-size: 10vw;
+    margin-left: 0.5em;
+    line-height: normal;
+    opacity: 100%;
+    transition: opacity .5s;
+  }
 
   ul {
     display: flex;
@@ -188,8 +202,16 @@ $navIconWidth: 30px;
       }
     }
   }
+}
 
-  ul.active {
+nav.open-nav {
+  height: 100vh;
+
+  p {
+    opacity: 0%;
+  }
+  
+  ul {
     top: 0;
   }
 }
