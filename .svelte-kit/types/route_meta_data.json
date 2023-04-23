@@ -2,6 +2,9 @@
 	"/": [
 		"src/routes/+page.ts"
 	],
+	"/api/posts": [
+		"src/routes/api/posts/+server.js"
+	],
 	"/blog": [
 		"src/routes/blog/+page.ts"
 	],
@@ -13,6 +16,9 @@
 	],
 	"/rosters": [
 		"src/routes/rosters/+page.ts"
+	],
+	"/rosters/[slug]": [
+		"src/routes/rosters/[slug]/+page.ts"
 	],
 	"/sverdle": [
 		"src/routes/sverdle/+page.server.ts"
