@@ -1,5 +1,6 @@
 <script>
 export let data;
+console.log(data)
 </script>
 
 <h1>Roster</h1>
@@ -7,10 +8,12 @@ export let data;
 <ul>
 	{#each data.posts as post}
 		<li>
-			<h2>
+			<p>Gamertag: {post.meta.gamerTag}</p>
+			<p>IRL: {post.meta.IRL}</p>
+			<!-- <h2>
 				<a href={post.path}>{post.meta.title}</a>
 			</h2>
-			Published {post.meta.date}
+			Published {post.meta.date} -->
 		</li>
 	{/each}
 </ul>
