@@ -86,6 +86,8 @@ $background: lightcoral;
 $easing: cubic-bezier(.25,1.7,.35,.8);
 $duration: 0.5s;
 $navIconWidth: 30px;
+
+// Mobile dropdown icon
 .mobile-icon {
   width: 3em;
   display: block;
@@ -98,6 +100,9 @@ $navIconWidth: 30px;
   margin-right: 2em;
   z-index: 101;
 
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
   .left-bar {
     position: absolute;
     background-color: transparent;
@@ -146,8 +151,7 @@ $navIconWidth: 30px;
     }
   }
 }
-
-.active {
+.open-nav {
   .left-bar:after {
     transform-origin: center center;
     transform: rotate(-70deg);
@@ -156,15 +160,23 @@ $navIconWidth: 30px;
     transform-origin: center center;
     transform: rotate(70deg);
   }
-
 }
 
 header {
   height: 3.5rem;
+  @media screen and (min-width: 1024px) {
+    position: sticky;
+    top: 0;
+    display:flex;
+    overflow:hidden;
+    justify-content: center;
+    height: 100px;
+  }
 }
 
 .nav {
   width: 100vw;
+  height: 3.5rem;
   position: absolute;
   font-size: 6vw;
   text-transform: uppercase;
@@ -175,12 +187,40 @@ header {
   color: white;
   transition: height 1s;
   
-  p {
-    font-size: 10vw;
+  @media screen and (min-width: 1024px) {
+    background: unset;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    border: 80px solid rgba(0,0,0,0);
+    border-top: 0 solid;
+    border-bottom: 100px solid rgba(1, 1, 1, .4);
+    -webkit-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
+    color: rgba(0,0,0,0.7);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    margin-top: -40px;
+    width: 75vw;
+    position: relative;
+    transition: all 0.7s ease;
+  }
+
+  .mobile-home-link {
+    color: white;
+    font-size: clamp(24px, 10vw, 50px);
     margin-left: 0.5em;
-    line-height: normal;
-    opacity: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 1;
     transition: opacity .5s;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
   }
 
   ul {
@@ -194,11 +234,22 @@ header {
     background: black;
     transition: top 1s;
   
+    @media screen and (min-width: 1024px) {
+      top: 6.5vw;
+      flex-direction: row;
+      background: unset;
+      -webkit-transform: rotateX(180deg);
+      transform: rotateX(180deg);
+      transition: all 0.5s ease;
+    }
     li {
       text-align: center;
       a {
         color: white;
         font-size: 10vw;
+        @media screen and (min-width: 1024px) {
+          font-size: 2rem;
+        }
       }
     }
   }
@@ -207,12 +258,19 @@ header {
 nav.open-nav {
   height: 100vh;
 
-  p {
+  @media screen and (min-width: 1024px) {
+    height: 0;
+  }
+  .mobile-home-link {
     opacity: 0%;
   }
   
   ul {
     top: 0;
+
+    @media screen and (min-width: 1024px) {
+      top: 6.5vw;
+    }
   }
 }
 

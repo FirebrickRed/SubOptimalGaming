@@ -8,11 +8,11 @@
 
 <header>
 	<nav class={`nav${showMobileMenu ? " open-nav" : ""}`}>
-		<p>SOG</p>
-		<button class="mobile-icon" on:click={handleMobileIconClick}>
-			<span class="left-bar" />
-			<span class="right-bar" />
-		</button>
+			<a href="/" class="mobile-home-link">SOG</a>
+			<button class="mobile-icon" on:click={handleMobileIconClick}>
+				<span class="left-bar" />
+				<span class="right-bar" />
+			</button>
 		<ul>
 			<li><a href="/blog/" on:click={handleMobileIconClick}>Blog</a></li>
 			<li><a href="/news/" on:click={handleMobileIconClick}>News</a></li>
