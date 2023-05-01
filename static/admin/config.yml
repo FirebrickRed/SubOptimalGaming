@@ -25,7 +25,7 @@ collections:
     slug: "{{day}}-{{month}}-{{year}}"
     fields:
       - {label: "Title", name: "title", widget: "string", required: true}
-      - {label: "Author", name: "author", widget: "string", required: true}
-      - {label: "Content", name: "content", widget: "relation", required: true, collection: "players", search_fields: ["gamerTag", "IRL"], searchFields: ["gamerTag", "IRL"], display_fields: ["gamerTag", "IRL"], value_field: "gamerTag", valueFields: "gamerTag"}
+      - {label: "Author", name: "author", widget: "relation", required: true, collection: "players", search_fields: ["gamerTag", "IRL"], searchFields: ["gamerTag", "IRL"], display_fields: ["gamerTag", "IRL"], value_field: "gamerTag", valueFields: "gamerTag"}
+      - {label: "Content", name: "content", widget: "file", required: true, }
   # - name: "Teams"
   # - name: "news"
