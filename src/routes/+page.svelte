@@ -7,14 +7,21 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section class="welcome">
+<div>
+	<h1>Upcoming Tournaments</h1>
+	<h1>Currently Live</h1>
+	<h1>Welcome to SOG</h1>
+	<h1>New Blog Posts</h1>
+</div>
+
+<!-- <section class="welcome">
 	<h1>
-		<!-- <span class="welcome">
+		 <span class="welcome">
 			<picture>
 				<source srcset={welcome} type="image/webp" />
 				 <img src={welcome_fallback} alt="Welcome" /> 
 			</picture>
-		</span> -->
+		</span>
 
 		to your new<br />SvelteKit app
 	</h1>
@@ -24,7 +31,7 @@
 	</h2>
 
 	<Counter />
-</section>
+</section> -->
 
 <!-- <style>
 	section {

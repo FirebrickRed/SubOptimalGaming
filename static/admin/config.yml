@@ -18,3 +18,14 @@ collections:
       - {label: "Twitch Link", name: "twitch", widget: "string", required: false}
       - {label: "Twitter Link", name: "twitter", widget: "string", required: false}
       - {label: "Instagram Link", name: "instagram", widget: "string", required: false}
+  - name: "blogs"
+    label: "Blogs"
+    folder: "src/routes/blog"
+    create: true
+    slug: "{{day}}-{{month}}-{{year}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Author", name: "author", widget: "string", required: true}
+      - {label: "Content", name: "content", widget: "relation", required: true, collection: "players", search_fields: ["gamerTag", "IRL"], display_fields: "gamerTag"}
+  # - name: "Teams"
+  # - name: "news"
