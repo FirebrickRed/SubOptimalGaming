@@ -1,18 +1,16 @@
 <script>
-    import { e } from "vitest/dist/index-5aad25c1";
-
-	export let data;
-	console.log(data);
+	// export let data;
+	// console.log(data);
 </script>
 
 <h1>Blogs</h1>
-<ul>
+<!-- <ul>
 	{#each data.posts as post}
 		<li>
-			<!-- <p>{post.meta}</p> -->
+			<p>{post.meta}</p>
 		</li>
 	{/each}
-</ul>
+</ul> -->
 
 <!-- <div class="text-column">
 	<h1>About this app</h1>
