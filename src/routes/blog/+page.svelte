@@ -1,9 +1,20 @@
-<svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
-</svelte:head>
+<script>
+    import { e } from "vitest/dist/index-5aad25c1";
 
-<div class="text-column">
+	export let data;
+	console.log(data);
+</script>
+
+<h1>Blogs</h1>
+<ul>
+	{#each data.posts as post}
+		<li>
+			<!-- <p>{post.meta}</p> -->
+		</li>
+	{/each}
+</ul>
+
+<!-- <div class="text-column">
 	<h1>About this app</h1>
 
 	<p>
@@ -23,4 +34,4 @@
 		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
 		using it with JavaScript disabled!
 	</p>
-</div>
+</div> -->

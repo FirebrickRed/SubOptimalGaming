@@ -2,8 +2,11 @@
 	"/": [
 		"src/routes/+page.ts"
 	],
-	"/api/posts": [
-		"src/routes/api/posts/+server.js"
+	"/api/posts/blog": [
+		"src/routes/api/posts/blog/+server.js"
+	],
+	"/api/posts/rosters": [
+		"src/routes/api/posts/rosters/+server.js"
 	],
 	"/blog": [
 		"src/routes/blog/+page.ts"
