@@ -11,6 +11,7 @@
 	"/blog": [
 		"src/routes/blog/+page.ts"
 	],
+	"/blog/[slug]": [],
 	"/merch": [
 		"src/routes/merch/+page.ts"
 	],

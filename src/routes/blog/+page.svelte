@@ -1,16 +1,20 @@
 <script>
-	// export let data;
-	// console.log(data);
+	export let data;
+	console.log(data);
+	// @ts-ignore
+	// document.getElementById('test')?.innerHTML = data.posts[0].meta.contet;
 </script>
 
 <h1>Blogs</h1>
-<!-- <ul>
+<div>
 	{#each data.posts as post}
-		<li>
-			<p>{post.meta}</p>
-		</li>
+		<div>
+			<a href="{post.path}">{post.meta.title}</a>
+			<div>{post.meta.content}</div>
+			<!-- <p id='test'></p> -->
+		</div>
 	{/each}
-</ul> -->
+</div>
 
 <!-- <div class="text-column">
 	<h1>About this app</h1>

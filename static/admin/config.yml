@@ -26,6 +26,6 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string", required: true}
       - {label: "Author", name: "author", widget: "relation", required: true, collection: "players", search_fields: ["gamerTag", "IRL"], searchFields: ["gamerTag", "IRL"], display_fields: ["gamerTag", "IRL"], value_field: "gamerTag", valueFields: "gamerTag"}
-      - {label: "Content", name: "content", widget: "markdown", required: true, }
+      - {label: "Content", name: "body", widget: "markdown", required: true, }
   # - name: "Teams"
   # - name: "news"
