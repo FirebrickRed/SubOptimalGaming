@@ -11,3 +11,11 @@ $header-font: 'Audiowide', display;
 // $base-font: 'Dongle', sans-serif;
 // $base-font: 'Dekko', handwriting;
 $base-font: 'Anybody', display;
+
+@function headings($from:1, $to:6) {
+  @if $from == $to {
+      @return 'h#{$from}';
+  } @else {
+      @return 'h#{$from},' + headings($from+1, $to);
+  }
+}

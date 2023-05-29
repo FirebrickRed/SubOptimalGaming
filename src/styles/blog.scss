@@ -6,4 +6,9 @@
   border-bottom: 5px solid black;
   margin-bottom: 5rem;
   padding: 1rem;
+
+  ul {
+    list-style-type: square;
+    list-style-position: inside;
+  }
 }

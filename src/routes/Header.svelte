@@ -1,5 +1,4 @@
 <script>
-	import { page } from "$app/stores";
 	import "../styles/index.scss";
 
 	let showMobileMenu = false;
@@ -16,7 +15,7 @@
 		<ul>
 			<li><a href="/blog/" on:click={handleMobileIconClick}>Blog</a></li>
 			<li><a href="/news/" on:click={handleMobileIconClick}>News</a></li>
-			<li class="mid"><a href="/" on:click={handleMobileIconClick}>Logo</a></li>
+			<li class="mid"><a href="/" on:click={handleMobileIconClick}><img src='/sog_logo.png' alt='SubOptimal Gaming Logo' /></a></li>
 			<li><a href="/rosters/" on:click={handleMobileIconClick}>Rosters</a></li>
 			<li><a href="/merch/" on:click={handleMobileIconClick}>Merch</a></li>
 		</ul>

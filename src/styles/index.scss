@@ -4,9 +4,37 @@
 @import "transition";
 @import "blog";
 
-h1, h2, h3 {
+#{headings(1, 3)} {
   font-family: $header-font;
   text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3rem;
+  @media screen and (min-width: 1024px) {
+    font-size: 4rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  @media screen and (min-width: 1024px) {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  @media screen and (min-width: 1024px) {
+    font-size: 2rem;
+  }
+}
+
+p {
+  font-size: 1.5rem;
+  @media screen and (min-width: 1024px) {
+    font-size: 2rem;
+  }
 }
 
 body {
