@@ -2,13 +2,19 @@
 
 .post_block {
   background: white;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
+  border-top: 5px solid $silver;
+  border-bottom: 5px solid $silver;
   margin-bottom: 5rem;
   padding: 1rem;
+  color: black;
+  filter: drop-shadow(0 0 .25rem white);
 
   ul {
     list-style-type: square;
     list-style-position: inside;
+    font-size: 1.5rem;
+    @media screen and (min-width: 1024px) {
+      font-size: 2rem;
+    }
   }
 }

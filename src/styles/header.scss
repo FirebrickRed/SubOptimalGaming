@@ -117,6 +117,8 @@ header {
     overflow:hidden;
     justify-content: center;
     height: 100px;
+    filter: drop-shadow(0 0 .25rem $purple);
+    z-index: 10;
   }
 }
 
@@ -142,10 +144,9 @@ header {
     height: 0;
     border: 80px solid rgba(0,0,0,0);
     border-top: 0 solid;
-    border-bottom: 100px solid rgba(1, 1, 1, .4);
+    border-bottom: 100px solid $whiteish;
     -webkit-border-radius: 20px 20px 0 0;
     border-radius: 20px 20px 0 0;
-    color: rgba(0,0,0,0.7);
     -o-text-overflow: clip;
     text-overflow: clip;
     -webkit-transform: rotateX(180deg);
@@ -207,10 +208,36 @@ header {
         color: white;
         font-size: 10vw;
         @media screen and (min-width: 1024px) {
+          color: black;
           font-size: 2rem;
         }
       }
     }
+  }
+}
+
+header::before {
+  @media screen and (min-width: 1024px) {
+    content: '';
+    background: unset;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    border: 80px solid rgba(0,0,0,0);
+    border-top: 0 solid;
+    border-bottom: 100px solid $purple;
+    -webkit-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
+    color: pink;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    margin-top: -35px;
+    width: 75.5vw;
+    position: absolute;
+    transition: all 0.7s ease;
   }
 }
 

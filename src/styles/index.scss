@@ -38,23 +38,12 @@ p {
 }
 
 body {
-  background: $base-color;
+  background: $darkest;
   font-family: $base-font;
   font-size: 24px;
+  color: $whiteish;
 }
 
 .box {
   border: 5px solid black;
-}
-
-.b1 {
-  background: $base-color;
-}
-
-.b2 {
-  background: $secondary-color;
-}
-
-.b3 {
-  background: $third-color;
 }
