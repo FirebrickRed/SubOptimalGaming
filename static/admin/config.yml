@@ -28,5 +28,14 @@ collections:
       - {label: "Author", name: "author", widget: "relation", required: true, collection: "players", search_fields: ["gamerTag", "IRL"], searchFields: ["gamerTag", "IRL"], display_fields: ["gamerTag", "IRL"], value_field: "gamerTag", valueFields: "gamerTag"}
       - {label: "Content", name: "body", widget: "markdown", required: true, }
       - {label: "Short Summary", name: 'summary', widget: 'markdown', required: true}
-  # - name: "Teams"
+  - name: "Teams"
+    label: "Teams"
+    folder: "src/routes/roster"
+    create: true
+    slug: "{{day}}-{{month}}-{{year}}"
+    fields:
+      - {label: "Team Name", name: "teamName", widget: "string", required: true}
+      - {label: "Team Picture", name: "teamPicture", widget: "image", required: false}
+      - {label: "Teammates", name: "teammates", widget: "list", required: true, fields:
+        - {label: "Player", name: "player", widget: "relation", required: true, collection: "players", search_fields: ["gamerTag", "IRL"], searchFields: ["gamerTag", "IRL"], display_fields: ["gamerTag", "IRL"], value_field: "gamerTag", valueFields: "gamerTag"}}
   # - name: "news"
