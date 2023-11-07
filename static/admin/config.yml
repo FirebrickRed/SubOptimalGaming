@@ -15,9 +15,16 @@ collections:
       - {label: "Gamer Tag", name: "gamerTag", widget: "string", required: true}
       - {label: "IRL Name", name: "IRL", widget: "string", required: false}
       - {label: "Player Picture", name: "playerPicture", widget: "image", required: false}
-      - {label: "Twitch Link", name: "twitch", widget: "string", required: false}
-      - {label: "Twitter Link", name: "twitter", widget: "string", required: false}
-      - {label: "Instagram Link", name: "instagram", widget: "string", required: false}
+      - {label: "Links", name: "links", widget: "list", required: false, field: {label: "url", name: "url", widget: "string"}}
+      - {label: "About Player", name: "about", widget: "text", required: false}
+      - {label: "Team Affiliation", name: "teamAffiliation", widget: "relation", required: true, collection: "Teams", search_fields: ["teamName"], searchFields: ["teamName"], display_fields: ["teamName"], value_field: "teamName", valueFields: "teamName"}
+      - {label: "Team Role", name: "teamRole", widget: "list", required: false, field: {label: "Role", name: "role", widget: "string"}}
+      - {label: "Role In Org", name: "roleInOrg", widget: "list", required: false, field: {label: "Role", name: "role", widget: "string"}}
+      # - {label: "Computer Specs", name: "links", widget: "list", required: false, field: {label: "Item", name: "item", widget: "string"}}
+      - {label: "Clips", name: "clips", widget: "list", required: false, field: {label: "url", name: "url", widget: "string"}}
+      - {label: "Ranks", name: "ranks", widget: "list", required: false, field: {label: "Game Name", name: "gameName", widget: "string"}, {label: "Game Rank", name: "gameRank", widget: "string"}}
+      # - {label: "Player Achievements"}
+      # - {label: "Favorite Games", name: "links", widget: "list", required: false, field: {label: "url", name: "url", widget: "string"}}
   - name: "blogs"
     label: "Blogs"
     folder: "src/routes/blog"
@@ -35,7 +42,13 @@ collections:
     slug: "{{day}}-{{month}}-{{year}}"
     fields:
       - {label: "Team Name", name: "teamName", widget: "string", required: true}
+      - {label: "Game", name: "game", widget: "string", required: true}
       - {label: "Team Picture", name: "teamPicture", widget: "image", required: false}
       - {label: "Teammates", name: "teammates", widget: "list", required: true, fields: 
           [{label: "Player", name: "player", widget: "relation", required: true, collection: "players", search_fields: ["gamerTag", "IRL"], searchFields: ["gamerTag", "IRL"], display_fields: ["gamerTag", "IRL"], value_field: "gamerTag", valueFields: "gamerTag"}]}
+      # - {label: "Team Video"}
+      # - {label: "Rank"}
+      # - {label: "Next Game"}
+      # - {label: "Previous Games"}
+      # - {label: "Team Achievements"}
   # - name: "news"
