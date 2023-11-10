@@ -15,7 +15,32 @@ collections:
       - {label: "Gamer Tag", name: "gamerTag", widget: "string", required: true, hint: "Enter your gamer tag."}
       - {label: "IRL Name", name: "IRL", widget: "string"}
       - {label: "Player Picture", name: "playerPicture", widget: "image", hint: "Upload a profile picture."}
-      - {label: "Links", name: "links", widget: "list", field: {label: "Link", name: "link", widget: "string", pattern: ['^(http|https)://', 'Must be a valid URL']}}
+      - {label: "Social Media Links", name: "socialMedia", widget: "list", required: false, field: 
+          {
+            label: "Social Media",
+            name: "socialMedia",
+            widget: "object",
+            fields:
+              [
+                {
+                  label: "Platform",
+                  name: "platform",
+                  widget: "select",
+                  options: ["Twitter", "Facebook", "Instagram", "YouTube", "Twitch", "Discord", "Other"],
+                  default: "Other",
+                  hint: "Select the social media platform."
+                },
+                {
+                  label: "URL",
+                  name: "url",
+                  widget: "string",
+                  pattern: ['^(http|https)://', 'Must be a valid URL'],
+                  hint: "Enter the full URL to the profile."
+                }
+              ]
+          }
+        hint: "Add the player's social media profiles."
+        }
       - {label: "About Player", name: "about", widget: "text", hint: "Write a short bio about the player."}
       - {label: "Esports Team & Role", name: "esportsTeamAndRole", widget: "object", required: true, fields: 
           [
@@ -53,12 +78,31 @@ collections:
           {label: "Player", name: "player", widget: "relation", collection: "players", search_fields: ["gamerTag", "IRL"], display_fields: ["gamerTag"], value_field: "gamerTag", hint: "Select players that are part of this team."}
         }
       - {label: "Team Achievements", name: "teamAchievements", widget: "list", required: false, field: {label: "Achievement", name: "achievement", widget: "string", hint: "List significant achievements of the team."}}
-      - {label: "Social Media Links", name: "socialMedia", widget: "object", fields: 
-          [
-            {label: "Twitter", name: "twitter", widget: "string", required: false, pattern: ['^(http|https)://twitter.com/', 'Must be a valid Twitter URL']},
-            {label: "Facebook", name: "facebook", widget: "string", required: false, pattern: ['^(http|https)://www.facebook.com/', 'Must be a valid Facebook URL']},
-            {label: "Instagram", name: "instagram", widget: "string", required: false, pattern: ['^(http|https)://www.instagram.com/', 'Must be a valid Instagram URL']}
-          ], hint: "Enter the team's social media URLs."
+      - {label: "Social Media Links", name: "socialMedia", widget: "list", required: false, field: 
+          {
+            label: "Social Media",
+            name: "socialMedia",
+            widget: "object",
+            fields:
+              [
+                {
+                  label: "Platform",
+                  name: "platform",
+                  widget: "select",
+                  options: ["Twitter", "Facebook", "Instagram", "YouTube", "Twitch", "Discord", "Other"],
+                  default: "Other",
+                  hint: "Select the social media platform."
+                },
+                {
+                  label: "URL",
+                  name: "url",
+                  widget: "string",
+                  pattern: ['^(http|https)://', 'Must be a valid URL'],
+                  hint: "Enter the full URL to the profile."
+                }
+              ]
+          }
+        hint: "Add the team's social media profiles."
         }
       - {label: "About Team", name: "aboutTeam", widget: "markdown", required: false, hint: "Write a detailed description about the team, its history, strategy, and goals."}
       - {label: "Recent Matches", name: "recentMatches", widget: "list", required: false, fields: 
@@ -68,4 +112,28 @@ collections:
             {label: "Date", name: "date", widget: "datetime"}
           ], hint: "Add recent match details like opponent, result, and date."
         }
+      - {label: "Team Rank", name: "teamRank", widget: "string", required: false, hint: "Enter the team's current ranking in their respective league or competition. Leave blank if not applicable."}
+      - {label: "Team Clips", name: "teamClips", widget: "list", required: false, hint: "Add clips that showcase the team's highlights or important moments.", fields:
+          - {
+              label: "Clip Title",
+              name: "title",
+              widget: "string",
+              required: true,
+              hint: "Enter a descriptive title for the clip."
+            }
+          - {
+              label: "Clip URL",
+              name: "url",
+              widget: "string",
+              required: false,
+              pattern: ['^(http|https)://', 'Must be a valid URL'],
+              hint: "Enter the URL where the clip can be found (e.g., YouTube or Twitch)."
+            }
+          - {
+              label: "Upload Clip",
+              name: "file",
+              widget: "file",
+              required: false,
+              hint: "Alternatively, upload a video file for the clip. Acceptable formats are .mp4, .webm, etc."
+            }}
   # - name: "news"
