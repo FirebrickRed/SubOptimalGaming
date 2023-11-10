@@ -38,7 +38,7 @@ collections:
                   hint: "Enter the full URL to the profile."
                 }
               ]
-          }
+          },
         hint: "Add the player's social media profiles."
         }
       - {label: "About Player", name: "about", widget: "text", hint: "Write a short bio about the player."}
