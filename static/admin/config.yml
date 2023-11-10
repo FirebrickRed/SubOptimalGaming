@@ -113,27 +113,26 @@ collections:
           ], hint: "Add recent match details like opponent, result, and date."
         }
       - {label: "Team Rank", name: "teamRank", widget: "string", required: false, hint: "Enter the team's current ranking in their respective league or competition. Leave blank if not applicable."}
-      - {label: "Team Clips", name: "teamClips", widget: "list", required: false, hint: "Add clips that showcase the team's highlights or important moments.", fields:
-          - {
-              label: "Clip Title",
-              name: "title",
-              widget: "string",
-              required: true,
-              hint: "Enter a descriptive title for the clip."
-            }
-          - {
-              label: "Clip URL",
-              name: "url",
-              widget: "string",
-              required: false,
-              pattern: ['^(http|https)://', 'Must be a valid URL'],
-              hint: "Enter the URL where the clip can be found (e.g., YouTube or Twitch)."
-            }
-          - {
-              label: "Upload Clip",
-              name: "file",
-              widget: "file",
-              required: false,
-              hint: "Alternatively, upload a video file for the clip. Acceptable formats are .mp4, .webm, etc."
-            }}
+      - label: "Team Clips"
+        name: "teamClips"
+        widget: "list"
+        required: false
+        hint: "Add clips that showcase the team's highlights or important moments."
+        fields:
+          - label: "Clip Title"
+            name: "title"
+            widget: "string"
+            required: true
+            hint: "Enter a descriptive title for the clip."
+          - label: "Clip URL"
+            name: "url"
+            widget: "string"
+            required: false
+            pattern: ['^(http|https)://', 'Must be a valid URL']
+            hint: "Enter the URL where the clip can be found (e.g., YouTube or Twitch)."
+          - label: "Upload Clip"
+            name: "file"
+            widget: "file"
+            required: false
+            hint: "Alternatively, upload a video file for the clip. Acceptable formats are .mp4, .webm, etc."
   # - name: "news"
