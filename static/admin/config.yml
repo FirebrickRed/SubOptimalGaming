@@ -101,7 +101,7 @@ collections:
                   hint: "Enter the full URL to the profile."
                 }
               ]
-          }
+          },
         hint: "Add the team's social media profiles."
         }
       - {label: "About Team", name: "aboutTeam", widget: "markdown", required: false, hint: "Write a detailed description about the team, its history, strategy, and goals."}
