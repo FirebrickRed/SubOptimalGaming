@@ -49,7 +49,7 @@ collections:
           ]
         }
       - {label: "Role In Org", name: "roleInOrg", widget: "list", required: false, field: {label: "Role", name: "role", widget: "string"}}
-      # - {label: "Computer Specs", name: "computerSpecs", widget: "object", required: false, fields: [{label: "CPU", name: "cpu", widget: "string"}, {label: "GPU", name: "gpu", widget: "string"}, {label: "RAM", name: "ram", widget: "string"}]}
+      - {label: "Computer Specs", name: "computerSpecs", widget: "object", required: false, fields: [{label: "CPU", name: "cpu", widget: "string", required: false}, {label: "GPU", name: "gpu", widget: "string", required: false}, {label: "RAM", name: "ram", widget: "string", required: false}]}
       - label: "Clips"
         name: "clips"
         widget: "list"
