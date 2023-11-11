@@ -44,7 +44,7 @@ collections:
       - {label: "About Player", name: "about", widget: "markdown", required: false, hint: "Write a short bio about the player."}
       - {label: "Esports Team & Role", name: "esportsTeamAndRole", widget: "object", required: false, fields: 
           [
-            {label: "Esports Team", name: "esportsTeam", widget: "relation", collection: "Teams", search_fields: ["teamName"], display_fields: ["teamName"], value_field: "teamName", hint: "Select the professional Esports team."},
+            {label: "Esports Team", name: "esportsTeam", widget: "relation", required: false, collection: "Teams", search_fields: ["teamName"], display_fields: ["teamName"], value_field: "teamName", hint: "Select the professional Esports team."},
             {label: "Team Roles", name: "teamRoles", widget: "list", field: {label: "Role", name: "role", widget: "string", hint: "Add roles as applicable."}}
           ]
         }
