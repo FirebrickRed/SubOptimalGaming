@@ -13,8 +13,8 @@ collections:
     slug: "{{day}}-{{month}}-{{year}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields:
       - {label: "Gamer Tag", name: "gamerTag", widget: "string", required: true, hint: "Enter your gamer tag."}
-      - {label: "IRL Name", name: "IRL", widget: "string"}
-      - {label: "Player Picture", name: "playerPicture", widget: "image", hint: "Upload a profile picture."}
+      - {label: "IRL Name", name: "IRL", required: false, widget: "string"}
+      - {label: "Player Picture", name: "playerPicture", widget: "image", required: false, hint: "Upload a profile picture."}
       - {label: "Social Media Links", name: "socialMedia", widget: "list", required: false, field: 
           {
             label: "Social Media",
@@ -41,20 +41,34 @@ collections:
           },
         hint: "Add the player's social media profiles."
         }
-      - {label: "About Player", name: "about", widget: "text", hint: "Write a short bio about the player."}
-      - {label: "Esports Team & Role", name: "esportsTeamAndRole", widget: "object", required: true, fields: 
+      - {label: "About Player", name: "about", widget: "markdown", required: false, hint: "Write a short bio about the player."}
+      - {label: "Esports Team & Role", name: "esportsTeamAndRole", widget: "object", required: false, fields: 
           [
             {label: "Esports Team", name: "esportsTeam", widget: "relation", collection: "Teams", search_fields: ["teamName"], display_fields: ["teamName"], value_field: "teamName", hint: "Select the professional Esports team."},
             {label: "Team Roles", name: "teamRoles", widget: "list", field: {label: "Role", name: "role", widget: "string", hint: "Add roles as applicable."}}
           ]
         }
-      - {label: "Role In Org", name: "roleInOrg", widget: "list", field: {label: "Role", name: "role", widget: "string"}}
-      - {label: "Computer Specs", name: "computerSpecs", widget: "object", fields: [{label: "CPU", name: "cpu", widget: "string"}, {label: "GPU", name: "gpu", widget: "string"}, {label: "RAM", name: "ram", widget: "string"}]}
-      - {label: "Clips", name: "clips", widget: "list", field: {label: "Clip", name: "clip", widget: "file", hint: "Upload a video clip or provide a URL."}}
-      - {label: "Ranks", name: "ranks", widget: "list", fields: [{label: "Game Name", name: "gameName", widget: "string"}, {label: "Game Rank", name: "gameRank", widget: "string"}]}
-      - {label: "Player Achievements", name: "playerAchievements", widget: "list", field: {label: "Achievement", name: "achievement", widget: "string"}}
-      - {label: "Favorite Games", name: "favoriteGames", widget: "list", field: {label: "Game", name: "game", widget: "string"}}
-      - {label: "Recent Game", name: "recentGame", widget: "string", hint: "Add a game you've played recently."}
+      - {label: "Role In Org", name: "roleInOrg", widget: "list", required: false, field: {label: "Role", name: "role", widget: "string"}}
+      - {label: "Computer Specs", name: "computerSpecs", widget: "object", required: false, fields: [{label: "CPU", name: "cpu", widget: "string"}, {label: "GPU", name: "gpu", widget: "string"}, {label: "RAM", name: "ram", widget: "string"}]}
+      - label: "Clips"
+        name: "clips"
+        widget: "list"
+        required: false
+        fields:
+          - label: "Clip Title"
+            name: "title"
+            widget: "string"
+            required: true
+            hint: "Enter a descriptive title for the clip."
+          - label: "Upload Clip"
+            name: "file"
+            widget: "file"
+            required: false
+            hint: "Alternatively, upload a video file for the clip. Acceptable formats are .mp4, .webm, ect." 
+      - {label: "Ranks", name: "ranks", widget: "list", required: false, fields: [{label: "Game Name", name: "gameName", widget: "string"}, {label: "Game Rank", name: "gameRank", widget: "string"}]}
+      - {label: "Player Achievements", name: "playerAchievements", widget: "list", required: false, field: {label: "Achievement", name: "achievement", widget: "string"}}
+      - {label: "Favorite Games", name: "favoriteGames", widget: "list", required: false, field: {label: "Game", name: "game", widget: "string"}}
+      - {label: "Recent Game", name: "recentGame", widget: "string", required: false, hint: "Add a game you've played recently."}
   - name: "blogs"
     label: "Blogs"
     folder: "src/routes/blog"
@@ -102,6 +116,7 @@ collections:
                 }
               ]
           },
+        required: false,
         hint: "Add the team's social media profiles."
         }
       - {label: "About Team", name: "aboutTeam", widget: "markdown", required: false, hint: "Write a detailed description about the team, its history, strategy, and goals."}
@@ -124,12 +139,6 @@ collections:
             widget: "string"
             required: true
             hint: "Enter a descriptive title for the clip."
-          - label: "Clip URL"
-            name: "url"
-            widget: "string"
-            required: false
-            pattern: ['^(http|https)://', 'Must be a valid URL']
-            hint: "Enter the URL where the clip can be found (e.g., YouTube or Twitch)."
           - label: "Upload Clip"
             name: "file"
             widget: "file"

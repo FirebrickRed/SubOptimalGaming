@@ -8,12 +8,8 @@ console.log(data)
 <ul>
 	{#each data.posts as post}
 		<li>
-			<p>Gamertag: {post.meta.gamerTag}</p>
-			<p>IRL: {post.meta.IRL}</p>
-			<!-- <h2>
-				<a href={post.path}>{post.meta.title}</a>
-			</h2>
-			Published {post.meta.date} -->
+			<p>{post.meta.gamerTag}</p>
+			<p>{post.meta.IRL}</p>
 		</li>
 	{/each}
 </ul>
