@@ -75,6 +75,7 @@ collections:
     create: true
     slug: "{{day}}-{{month}}-{{year}}"
     fields:
+      - {label: 'ID', name: 'id', widget: 'uuid', default: '{{uuid}}', required: false, hidden: true}
       - {label: "Title", name: "title", widget: "string", required: true}
       - {label: "Author", name: "author", widget: "relation", required: true, collection: "players", search_fields: ["gamerTag", "IRL"], searchFields: ["gamerTag", "IRL"], display_fields: ["gamerTag", "IRL"], value_field: "gamerTag", valueFields: "gamerTag"}
       - {label: "Content", name: "body", widget: "markdown", required: true, }

@@ -7,7 +7,7 @@
   text-align: center;
 
   .title {
-    @include trapezoid(5rem, 6.25rem, -96%, -7.5rem, $silver);
+    @include trapezoid(5rem, 4.25rem, -94%, -94%, -7.5rem, $silver, 0deg);
   }
 
   .post_content {
@@ -16,7 +16,14 @@
     padding: 2rem;
     text-align: left;
     border-top: 0.25rem solid $silver;
+    border-bottom: 0.25rem solid $silver;
     z-index: -2;
+    margin-bottom: -10px;
+  }
+
+  .sub-title {
+    @include trapezoid(5rem, 4.25rem, -48%, -61%, -7.5rem, $silver, 180deg);
+    padding-top: 1rem;
   }
 }
 
@@ -27,6 +34,6 @@
   text-align: center;
 
   .IGN {
-    @include trapezoid(5rem, 6.25rem, -77%, -7.5rem, $silver);
+    @include trapezoid(5rem, 6.25rem, -77%, -77%, -7.5rem, $silver, 0deg);
   }
 }
