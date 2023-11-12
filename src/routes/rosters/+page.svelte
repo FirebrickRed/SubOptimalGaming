@@ -7,9 +7,9 @@ console.log(data)
 
 <ul>
 	{#each data.posts as post}
-		<li>
-			<p>{post.meta.gamerTag}</p>
-			<p>{post.meta.IRL}</p>
-		</li>
+		<div class="player_block">
+			<h2 class="IGN">{post.meta.gamerTag}</h2>
+			<!-- <p>{post.meta.IRL}</p> -->
+		</div>
 	{/each}
 </ul>
