@@ -4,6 +4,7 @@
 @import "transition";
 @import "blog";
 @import 'mixins';
+@import 'roster';
 
 #{headings(1, 3)} {
   font-family: $header-font;

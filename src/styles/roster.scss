@@ -1,0 +1,15 @@
+
+.player_block {
+  margin-bottom: 5rem;
+  color: black;
+  filter: drop-shadow(0 0 .25rem white);
+  text-align: center;
+
+  .IGN {
+    @include trapezoid(5rem, 6.25rem, -79%, -77%, -7.5rem, $silver, 0deg);
+  }
+
+  .player_content {
+    background: $whiteish;
+  }
+}
