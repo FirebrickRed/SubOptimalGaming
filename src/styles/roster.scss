@@ -12,4 +12,20 @@
   .player_content {
     background: $whiteish;
   }
+
+  .carouselControls {
+    @include trapezoid(5rem, 4.25rem, -68%, -87%, -5.5rem, $silver, 180deg);
+    .carouselButtons {
+      display: flex;
+      
+      h3 {
+        padding: 0 2rem;
+      }
+
+      button {
+        background: #fab;
+        cursor: pointer;
+      }
+    }
+  }
 }
