@@ -23,11 +23,5 @@
 	],
 	"/rosters/[slug]": [
 		"src/routes/rosters/[slug]/+page.ts"
-	],
-	"/sverdle": [
-		"src/routes/sverdle/+page.server.ts"
-	],
-	"/sverdle/how-to-play": [
-		"src/routes/sverdle/how-to-play/+page.ts"
 	]
 }

@@ -65,7 +65,7 @@ collections:
             widget: "file"
             required: false
             hint: "Alternatively, upload a video file for the clip. Acceptable formats are .mp4, .webm, ect." 
-      - {label: "Ranks", name: "ranks", widget: "list", required: false, fields: [{label: "Game Name", name: "gameName", widget: "string"}, {label: "Game Rank", name: "gameRank", widget: "string"}]}
+      - {label: "Ranks", name: "ranks", widget: "list", required: false, fields: [{label: "Game Name", name: "gameName", widget: "string"}, {label: "Game Name", name: "gameName", widget: "string"}]}
       - {label: "Player Achievements", name: "playerAchievements", widget: "list", required: false, field: {label: "Achievement", name: "achievement", widget: "string"}}
       - {label: "Favorite Games", name: "favoriteGames", widget: "list", required: false, field: {label: "Game", name: "game", widget: "string"}}
       - {label: "Recent Game", name: "recentGame", widget: "string", required: false, hint: "Add a game you've played recently."}
