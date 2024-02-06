@@ -45,7 +45,7 @@
 
 	async function fetchPlayerRank() {
     try {
-      const response = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}?api_key=RGAPI-2ba989f7-82bc-4f5c-b709-8a2e809daf55`);
+      const response = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}`);
       if (!response.ok) throw new Error('Failed to fetch rank info');
 			console.log(response)
       rankInfo = await response.json();
