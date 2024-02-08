@@ -1,5 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
+	// import { RIOT_API_KEY, STEAM_API_KEY } from '$env/static/private';
 
 	/*
 		A lot of this can probably be moved to the api folder eventually
@@ -39,22 +40,60 @@
 	console.log(data);
 
 	// get summoner id from data if applicable
+	let summonerName = 'Gh0st X';
 	let summonerId = '1CAlBu90eF6L6oELxWolIVgDnwTPoftI3sqUQlCibqsjH4Q'; 
   let rankInfo = null;
   let error = null;
 
-	async function fetchPlayerRank() {
-    try {
-      const response = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}`);
-      if (!response.ok) throw new Error('Failed to fetch rank info');
-			console.log(response)
-      rankInfo = await response.json();
-			console.log(rankInfo)
-    } catch (err) {
-      error = err.message;
-    }
-  }
-	onMount(fetchPlayerRank);
+	// if getting a 403 probably need to refresh api key
+
+	// async function getSummonerId() {
+	// 	try {
+	// 		const response = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${summonerName}?api_key=${RIOT_API_KEY}`);
+	// 		if(!response.ok) throw new Error('failed to fetch rank info');
+	// 		console.log(response);
+	// 		let summonerInfo = await response.json();
+	// 		console.log(summonerInfo);
+	// 		fetchPlayerRank(summonerInfo.id);
+	// 	} catch(err) {
+	// 		error = err.message;
+	// 	}
+	// }
+
+	// async function fetchPlayerRank(id) {
+  //   try {
+  //     const response = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${RIOT_API_KEY}`);
+  //     if (!response.ok) throw new Error('Failed to fetch rank info');
+	// 		console.log(response)
+  //     rankInfo = await response.json();
+	// 		console.log(rankInfo)
+  //   } catch (err) {
+  //     error = err.message;
+  //   }
+  // }
+
+	// async function resolveVanityUrl() {
+	// 	let userCustomUrl = 'https://steamcommunity.com/profiles/76561198038986067/';
+	// 	try{
+	// 		const response = await fetch(`http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${STEAM_API_KEY}&vanityurl=${userCustomUrl}`);
+	// 		const data = await response.json();
+	// 		console.log(data);
+	// 	} catch (err) {
+	// 		error = err.message;
+	// 	}
+	// }
+
+	// async function getRecentlyPlayedSteamGames() {
+	// 	const steam_id = '76561198038986067';
+	// 	try {
+	// 		const response = await fetch(`http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${STEAM_API_KEY}&steamid=${steam_id}&format=json`);
+	// 		if(!response.ok) throw new Error('Faild to fetch steam games');
+	// 	} catch (err) {
+	// 		error = err.message;
+	// 	}
+	// }
+
+	// onMount(getSummonerId);
 </script>
 
 <h1>Roster</h1>
