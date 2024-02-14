@@ -1,99 +1,34 @@
 <script>
-	import { onMount } from 'svelte';
-	// import { RIOT_API_KEY, STEAM_API_KEY } from '$env/static/private';
-
 	/*
-		A lot of this can probably be moved to the api folder eventually
-
 		Valorant
 		https://splendid-groovy-feverfew.glitch.me/valorant/region/name/tag
-
-		Automagically getting ranks with riot
-		TFT Ranked:
-			WebPage: https://developer.riotgames.com/apis#tft-league-v1
-			request url: https://na1.api.riotgames.com/tft/league/v1/entries/by-summoner/mhK-cDvDwz7vKBE_dGqK5evNCJD9DKO9A7QyZqDyWKO-yf0
-			needs: encryptedSummonerId
-		
-		to get summonerId:
-			WebPage: https://developer.riotgames.com/apis#tft-summoner-v1/GET_getBySummonerName
-			request url: https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/Dreemie
-			needs: SummonerName
 	*/
 	export let data;
-	const carouselTitles = ['About', 'Game', 'eSports'];
+	console.log('data', data);
 
-	data.posts.forEach(post => {
-		post.carouselIndex = 0;
-	});
+	const handleCarousleClick = (post, direction) => {
+		const updatedPosts = data.posts.map(p => {
+			if(p.gamerTag === post.gamerTag) {
+				let newIndex = p.carousel.index + direction;
+				if(newIndex >= p.carousel.indexes.length) {
+					newIndex = 0;
+				} else if(newIndex < 0) {
+					newIndex = p.carousel.indexes.length - 1;
+				}
 
-	const handleCarousleClick = (post, i) => {
-		let newIndex = post.carouselIndex + i;
-		if(newIndex >= carouselTitles.length) {
-			newIndex = 0;
-		} else if (newIndex < 0) {
-			newIndex = carouselTitles.length - 1;
-		}
-		post.carouselIndex = newIndex;
+				return {
+					...p,
+					carousel: {
+						...p.carousel,
+						index: newIndex
+					}
+				};
+			}
+			return p;
+		});
 
-		data.posts = data.posts.map(p => p.path === post.path ? {...p, carouselIndex: newIndex} : p);
+		data.posts = updatedPosts;
 	}
-	console.log(data);
-
-	// get summoner id from data if applicable
-	let summonerName = 'Gh0st X';
-	let summonerId = '1CAlBu90eF6L6oELxWolIVgDnwTPoftI3sqUQlCibqsjH4Q'; 
-  let rankInfo = null;
-  let error = null;
-
-	// if getting a 403 probably need to refresh api key
-
-	// async function getSummonerId() {
-	// 	try {
-	// 		const response = await fetch(`https://na1.api.riotgames.com/tft/summoner/v1/summoners/by-name/${summonerName}?api_key=${RIOT_API_KEY}`);
-	// 		if(!response.ok) throw new Error('failed to fetch rank info');
-	// 		console.log(response);
-	// 		let summonerInfo = await response.json();
-	// 		console.log(summonerInfo);
-	// 		fetchPlayerRank(summonerInfo.id);
-	// 	} catch(err) {
-	// 		error = err.message;
-	// 	}
-	// }
-
-	// async function fetchPlayerRank(id) {
-  //   try {
-  //     const response = await fetch(`https://na1.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${RIOT_API_KEY}`);
-  //     if (!response.ok) throw new Error('Failed to fetch rank info');
-	// 		console.log(response)
-  //     rankInfo = await response.json();
-	// 		console.log(rankInfo)
-  //   } catch (err) {
-  //     error = err.message;
-  //   }
-  // }
-
-	// async function resolveVanityUrl() {
-	// 	let userCustomUrl = 'https://steamcommunity.com/profiles/76561198038986067/';
-	// 	try{
-	// 		const response = await fetch(`http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${STEAM_API_KEY}&vanityurl=${userCustomUrl}`);
-	// 		const data = await response.json();
-	// 		console.log(data);
-	// 	} catch (err) {
-	// 		error = err.message;
-	// 	}
-	// }
-
-	// async function getRecentlyPlayedSteamGames() {
-	// 	const steam_id = '76561198038986067';
-	// 	try {
-	// 		const response = await fetch(`http://api.steampowered.com/IPlayerService/GetRecentlyPlayedGames/v0001/?key=${STEAM_API_KEY}&steamid=${steam_id}&format=json`);
-	// 		if(!response.ok) throw new Error('Faild to fetch steam games');
-	// 	} catch (err) {
-	// 		error = err.message;
-	// 	}
-	// }
-
-	// onMount(getSummonerId);
 </script>
 
 <h1>Roster</h1>
@@ -101,51 +36,92 @@
 <ul>
 	{#each data.posts as post}
 		<div class="player_block">
-			<h2 class="IGN">{post.meta.gamerTag}</h2>
+			<h2 class="IGN">{post.gamerTag}</h2>
 			<div class="player_content">
 
-				{#if post.carouselIndex === 0}
+				{#if post.carousel.indexes[post.carousel.index] === 'About'}
 					<div class="about">
-						<p>{post.meta.IRL}</p>
+						<p>{post.aboutInfo.irl}</p>
 						<ol>
-							{#if post.meta.socialMedia}
-								{#each post.meta.socialMedia as socials}
+							{#if post.aboutInfo.socialMedia}
+								{#each post.aboutInfo.socialMedia as socials}
 									<li><a target='blank' href={socials.socialMedia.url}>{socials.socialMedia.platform}</a></li>
 								{/each}
 							{/if}
 						</ol>
-						<p>{@html post.meta.about}</p>
+						{#if post.aboutInfo.about}
+							<p>{@html post.aboutInfo.about}</p>
+						{:else}
+							<p>I'm too suboptimal to currently have an about section, and yes please yell at me to fill this out.</p>
+						{/if}
+						<!-- {#if post.aboutInfo.clips}
+							<div class='video-clips'>
+								<p>Clips:</p>
+								{#each post.aboutInfo.clips as clip}
+									<iframe src={clip.file} frameborder="0" allowfullscreen="true"></iframe>
+								{/each}
+							</div>
+						{/if} -->
 					</div>
 				{/if}
 	
-				{#if post.carouselIndex === 1}
+				{#if post.carousel.indexes[post.carousel.index] === 'Game'}
 					<div class="games">
-						{#if post.meta.recentGame}
-							<p>Recent Game: {post.meta.recentGame}</p>
-						{/if}
-						{#if post.meta.favoriteGames}
-						<p>Favorite Games:</p>
+						{#if post.favoriteGames.length > 0}
+							<p>Favorite Games:</p>
 							<ol>
-								{#each post.meta.favoriteGames as favoriteGame}
-									<li>{favoriteGame}</li>
+								{#each post.favoriteGames as favoriteGame}
+								<li>{favoriteGame}</li>
 								{/each}
 							</ol>
 						{/if}
+						<p>Recent Steam Games:</p>
+						{#each post.steamGameInfo as steamGame}
+							<p>{steamGame.gameName}</p>
+						{/each}
 					</div>
 				{/if}
 
-				{#if post.carouselIndex === 2}
-					<div class="esports">
-						<p>{post.meta.esportsTeamAndRole?.esportsTeam}</p>
-						<p>{post.meta.esportsTeamAndRole?.teamRoles[0]}</p>
+				{#if post.carousel.indexes[post.carousel.index] === 'LOL'}
+					<div class="lol">
+						<p>League of Legend Stats:</p>
+						{#if post.leagueInfo.lolRank.tier}
+							<p>{post.leagueInfo.lolRank.queueType}: {post.leagueInfo.lolRank.tier} {post.leagueInfo.lolRank.rank}</p>
+						{/if}
+						{#each post.leagueInfo.tftRank as tftRank}
+							{#if tftRank.tier}
+								<p>{tftRank.queueType}: {tftRank.tier} {tftRank.rank}</p>
+							{/if}
+						{/each}
 					</div>
+				{/if}
+
+				{#if post.carousel.indexes[post.carousel.index] === 'Business'}
+					<div class='orgInfo'>
+						<p>Role in Org:</p>
+						{#each post.orgInfo?.roleInOrg as role}
+							<p>{role}</p>
+						{/each}
+						{#if post.orgInfo.achievements?.length > 0}
+							<p>Achievements:</p>
+							{#each post.orgInfo.achievements as achievement}
+								<p>{achievement}</p>
+							{/each}
+						{/if}
+					</div>
+					{#if post.esports.esportsTeam}
+						<div class="esports">
+							<p>Team:</p>
+							<p>{post.esports.esportsTeam}: {post.esports.teamRoles[0]}</p>
+						</div>
+					{/if}
 				{/if}
 				
 			</div>
 			<div class='carouselControls'>
 				<div class='carouselButtons'>
 					<button on:click={() => handleCarousleClick(post, -1)}>Left</button>
-					<h3>{carouselTitles[post.carouselIndex]}</h3>
+					<h3>{post.carousel.indexes[post.carousel.index]}</h3>
 					<button on:click={() => handleCarousleClick(post, 1)}>Right</button>
 				</div>
 			</div>

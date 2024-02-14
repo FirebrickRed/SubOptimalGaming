@@ -27,7 +27,7 @@
  */
 declare module '$env/static/private' {
 	export const VITE_STEAM_API_KEY: string;
-	export const RIOT_API_KEY: string;
+	export const VITE_RIOT_API_KEY: string;
 	export const ACSetupSvcPort: string;
 	export const ACSvcPort: string;
 	export const ALLUSERSPROFILE: string;
@@ -41,7 +41,7 @@ declare module '$env/static/private' {
 	export const ComSpec: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_7280: string;
+	export const EFC_7252: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
@@ -101,6 +101,7 @@ declare module '$env/static/private' {
 	export const USERNAME: string;
 	export const USERPROFILE: string;
 	export const windir: string;
+	export const ZES_ENABLE_SYSMAN: string;
 }
 
 /**
@@ -131,7 +132,7 @@ declare module '$env/static/public' {
 declare module '$env/dynamic/private' {
 	export const env: {
 		VITE_STEAM_API_KEY: string;
-		RIOT_API_KEY: string;
+		VITE_RIOT_API_KEY: string;
 		ACSetupSvcPort: string;
 		ACSvcPort: string;
 		ALLUSERSPROFILE: string;
@@ -145,7 +146,7 @@ declare module '$env/dynamic/private' {
 		ComSpec: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_7280: string;
+		EFC_7252: string;
 		HOME: string;
 		HOMEDRIVE: string;
 		HOMEPATH: string;
@@ -205,6 +206,7 @@ declare module '$env/dynamic/private' {
 		USERNAME: string;
 		USERPROFILE: string;
 		windir: string;
+		ZES_ENABLE_SYSMAN: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: string]: string | undefined;
 	}
