@@ -29,3 +29,22 @@
     }
   }
 }
+
+.playerCarouselButtons {
+  .carouselButtons {
+    display: flex;
+    justify-content: space-between;
+    color: #EBEBEB;
+    h2 {
+      padding: 0 2rem;
+    }
+    .leftPlayerCarouselButton {
+      cursor: pointer;
+      @include trapezoid(5rem, 4.25rem, -68%, -87%, -5.5rem, $silver, 180deg);
+    }
+    .rightPlayerCarouselButton {
+      cursor: pointer;
+      @include trapezoid(5rem, 4.25rem, -68%, -87%, -5.5rem, $silver, 180deg);
+    }
+  }
+}
