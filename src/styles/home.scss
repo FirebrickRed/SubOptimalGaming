@@ -1,0 +1,28 @@
+
+#welcome {
+  display: flex;
+  position: relative;
+  animation: slideIn 1s ease-out;
+  justify-content: center;
+}
+
+#welcome::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  width: 50%;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    #A44FFF 0%,
+    #A44FFF 10%,
+    #6D3359 25%,
+    #6D3359 75%,
+    #A44FFF 90%,
+    #A44FFF 100%
+  );
+  transform: skewX(-20deg) translate(50%);
+  transform-origin: left;
+  box-shadow: 0 0 10px #a44fff;
+}

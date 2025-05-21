@@ -7,9 +7,9 @@
 </svelte:head>
 
 <div>
+	<h1 id="welcome">Welcome to SOG</h1>
 	<h1>Upcoming Tournaments</h1>
 	<h1>Currently Live</h1>
-	<h1>Welcome to SOG</h1>
 	<h1>New Blog Posts</h1>
 </div>
 

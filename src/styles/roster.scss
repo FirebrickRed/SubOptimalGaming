@@ -19,13 +19,57 @@
       display: flex;
       
       h3 {
-        padding: 0 2rem;
+        padding: 0 1rem;
+        padding-bottom: 4px;
+        align-self: center;
       }
 
       button {
-        background: #fab;
         cursor: pointer;
       }
+
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+
+      .leftChevron {
+        transform: rotateY(180deg);
+      }
+
+      .leftChevron:hover {
+        animation: pulseLeft 1s ease-in-out infinite;
+        filter: drop-shadow(0 0 6px #6D3359);
+      }
+
+      .rightChevron:hover {
+        animation: pulseRight 1s ease-in-out infinite;
+        filter: drop-shadow(0 0 6px #6D3359);
+      }
     }
+  }
+}
+
+@keyframes pulseRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseLeft {
+  0% {
+    transform: translateX(0) rotateY(180deg);
+  }
+  50% {
+    transform: translateX(-10px) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(0) rotateY(180deg);
   }
 }

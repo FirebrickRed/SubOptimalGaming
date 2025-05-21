@@ -1,4 +1,5 @@
 <script>
+	import Chevron from '$lib/images/Chevron.svelte';
 	/*
 		Valorant
 		https://splendid-groovy-feverfew.glitch.me/valorant/region/name/tag
@@ -120,9 +121,9 @@
 			</div>
 			<div class='carouselControls'>
 				<div class='carouselButtons'>
-					<button on:click={() => handleCarousleClick(post, -1)}>Left</button>
+					<button class='leftChevron' on:click={() => handleCarousleClick(post, -1)}><Chevron /></button>
 					<h3>{post.carousel.indexes[post.carousel.index]}</h3>
-					<button on:click={() => handleCarousleClick(post, 1)}>Right</button>
+					<button class='rightChevron' on:click={() => handleCarousleClick(post, 1)}><Chevron /></button>
 				</div>
 			</div>
 		</div>
