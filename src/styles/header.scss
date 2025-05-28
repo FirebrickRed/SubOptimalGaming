@@ -1,3 +1,4 @@
+@import './mixins';
 // I need a function that gets the height of the black trapezoid and white trapizoid
 $baseHeight: 50px;
 
@@ -161,6 +162,10 @@ header {
         display: unset;
         img {
           width: 100px;
+        }
+        
+        a {
+          @include trapezoid(5rem, 5rem, -118%, -94%, -4rem, -1.8rem, $purple, 180deg, $whiteish);
         }
       }
     }

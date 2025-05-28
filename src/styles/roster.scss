@@ -6,15 +6,23 @@
   text-align: center;
 
   .IGN {
-    @include trapezoid(5rem, 6.25rem, -79%, -77%, -7.5rem, $silver, 0deg, $whiteish);
+    @include trapezoid(5rem, 6.25rem, -79%, -77%, -7.5rem, -7.85rem, $silver, 0deg, $whiteish);
+    z-index: 1;
+    margin-bottom: 18px;
   }
 
   .player_content {
     background: $whiteish;
+    border-top: $silver 5px solid;
+    border-bottom: $silver 5px solid;
+    padding: 1rem 0;
   }
 
   .carouselControls {
-    @include trapezoid(5rem, 4.25rem, -68%, -87%, -5.5rem, $silver, 180deg, $whiteish);
+    @include trapezoid(5rem, 4.25rem, -68%, -87%, -5.5rem, -5.85rem, $silver, 180deg, $whiteish);
+    margin-top: 9px;
+    z-index: 1;
+
     .carouselButtons {
       display: flex;
       

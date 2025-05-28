@@ -7,7 +7,7 @@
   text-align: center;
 
   .title {
-    @include trapezoid(5rem, 4.25rem, -94%, -94%, -7.5rem, $silver, 0deg, $whiteish);
+    @include trapezoid(5rem, 4.25rem, -94%, -94%, -7.5rem, -7.85rem, $silver, 0deg, $whiteish);
   }
 
   .post_content {
@@ -22,7 +22,7 @@
   }
 
   .sub-title {
-    @include trapezoid(5rem, 4.25rem, -48%, -61%, -7.5rem, $silver, 180deg, $whiteish);
+    @include trapezoid(5rem, 4.25rem, -48%, -61%, -7.5rem, -7.85rem, $silver, 180deg, $whiteish);
     padding-top: 1rem;
   }
 }

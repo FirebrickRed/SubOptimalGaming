@@ -1,9 +1,20 @@
 <script>
+
+	// new Twitch.Embed("twitch-embed", {
+	// 	width: 854,
+	// 	height: 480,
+	// 	channel: "sewerratmatt",
+	// 	// Only needed if this page is going to be embedded on other websites
+	// 	// parent: ["embed.example.com", "othersite.example.com"]
+	// 	parent: []
+	// });
 </script>
 
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
+	<!-- Load the Twitch embed JavaScript file -->
+	<script src="https://embed.twitch.tv/embed/v1.js"></script>
 </svelte:head>
 
 <div>
@@ -12,55 +23,25 @@
 		<h2>Upcoming Tournaments</h2>
 		<p>None Schedualed Currently</p>
 	</article>
-	<h2 id="live">Currently Live</h2>
+	<article class="live-article">
+		<h2>Currently Live</h2>
+		<p>No one is currently live :(</p>
+		<!-- <div>
+			<div id="twitch-embed"></div> -->
+
+			<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+			<!-- <script type="text/javascript">
+				new Twitch.Embed("twitch-embed", {
+					width: 854,
+					height: 480,
+					channel: "justandy89",
+					// Only needed if this page is going to be embedded on other websites
+					// parent: ["embed.example.com", "othersite.example.com"]
+					parent: []
+				});
+			</script> -->
+		<!-- </div> -->
+	</article>
 	<!-- <h2>New Blog Posts</h2> -->
 </div>
 
-<!-- <section class="welcome">
-	<h1>
-		 <span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				 <img src={welcome_fallback} alt="Welcome" /> 
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
-</section> -->
-
-<!-- <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style> -->
