@@ -1,5 +1,5 @@
 
-@mixin trapezoid($border-width, $border-bottom-width, $transform-y-over, $transform-y-under, $offset, $color, $rotation) {
+@mixin trapezoid($border-width, $border-bottom-width, $transform-y-over, $transform-y-under, $offset, $borderColor, $rotation, $backgroundColor) {
   position: relative;
   display: inline-block;
   cursor: pointer;
@@ -22,7 +22,7 @@
     transform: translate(0, $transform-y-over) rotate($rotation);
     border: $border-width - 0.25rem solid transparent;
     border-top: none;
-    border-bottom: $border-bottom-width - 0.25rem solid $whiteish;
+    border-bottom: $border-bottom-width - 0.25rem solid $backgroundColor;
   }
 
   &::before {
@@ -32,6 +32,6 @@
     transform: translate(0, $transform-y-under) rotate($rotation);
     border: $border-width solid transparent;
     border-top: none;
-    border-bottom: $border-bottom-width solid $color;
+    border-bottom: $border-bottom-width solid $borderColor;
   }
 }

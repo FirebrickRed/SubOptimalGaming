@@ -6,7 +6,7 @@
   text-align: center;
 
   .IGN {
-    @include trapezoid(5rem, 6.25rem, -79%, -77%, -7.5rem, $silver, 0deg);
+    @include trapezoid(5rem, 6.25rem, -79%, -77%, -7.5rem, $silver, 0deg, $whiteish);
   }
 
   .player_content {
@@ -14,7 +14,7 @@
   }
 
   .carouselControls {
-    @include trapezoid(5rem, 4.25rem, -68%, -87%, -5.5rem, $silver, 180deg);
+    @include trapezoid(5rem, 4.25rem, -68%, -87%, -5.5rem, $silver, 180deg, $whiteish);
     .carouselButtons {
       display: flex;
       

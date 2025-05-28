@@ -8,9 +8,12 @@
 
 <div>
 	<h1 id="welcome">Welcome to SOG</h1>
-	<h1>Upcoming Tournaments</h1>
-	<h1>Currently Live</h1>
-	<h1>New Blog Posts</h1>
+	<article class="tournaments-article">
+		<h2>Upcoming Tournaments</h2>
+		<p>None Schedualed Currently</p>
+	</article>
+	<h2 id="live">Currently Live</h2>
+	<!-- <h2>New Blog Posts</h2> -->
 </div>
 
 <!-- <section class="welcome">

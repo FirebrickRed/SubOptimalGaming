@@ -26,3 +26,22 @@
   transform-origin: left;
   box-shadow: 0 0 10px #a44fff;
 }
+
+.tournaments-article {
+  h2 {
+    @include trapezoid(5rem, 4.25rem, -95%, -94%, -7.5rem, $silver, 0deg, $purple);
+    margin: 3rem 2rem;
+    margin-bottom: -2px;
+    text-shadow: 0 0 10px black;
+    z-index: 1;
+  }
+
+  p {
+    background: $purple;
+    text-shadow: 0 0 10px black;
+    padding: 2rem;
+    border-top: $silver 5px solid;
+    border-bottom: $silver 5px solid;
+    box-shadow: 0 0 5px $silver;
+  }
+}
