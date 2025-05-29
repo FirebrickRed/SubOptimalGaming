@@ -13,6 +13,8 @@
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
+	<link rel="preconnect" href="https://fonts.bunny.net">
+	<link href="https://fonts.bunny.net/css?family=anybody:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|audiowide:400&display=swap" rel="stylesheet" />
 	<!-- Load the Twitch embed JavaScript file -->
 	<script src="https://embed.twitch.tv/embed/v1.js"></script>
 </svelte:head>
