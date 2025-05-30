@@ -1,36 +1,49 @@
 
-@mixin trapezoid($border-width, $border-bottom-width, $transform-y-over, $transform-y-under, $offset-after, $offset-before, $borderColor, $rotation, $backgroundColor) {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  user-select: none;
+@mixin trapezoid(
+  $border-width: 5rem, 
+  $border-bottom-width, 
+  $transform-y-over, 
+  $transform-y-under, 
+  $offset-after, 
+  $offset-before, 
+  $borderColor, 
+  $rotation, 
+  $backgroundColor, 
+  $height: 1.5rem
+  ) {
+    position: relative;
+    display: inline-block;
+    // cursor: pointer;
+    user-select: none;
 
-  &::after,
-  &::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    transition: all 0.7s ease;
-    z-index: -1;
-  }
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      transition: all 0.7s ease;
+      z-index: -1;
+    }
 
-  &::after {
-    left: $offset-after;
-    right: $offset-after;
-    height: 1.5rem;
-    transform: translate(0, $transform-y-over) rotate($rotation);
-    border: $border-width - 0.25rem solid transparent;
-    border-top: none;
-    border-bottom: $border-bottom-width - 0.25rem solid $backgroundColor;
-  }
+    &::after {
+      left: $offset-after;
+      right: $offset-after;
+      height: $height;
+      transform: translateY($transform-y-over) rotate($rotation);
+      border-width: calc($border-width - 0.25rem);
+      border-style: solid;
+      border-color: transparent;
+      border-top: none;
+      border-bottom: $border-bottom-width - 0.25rem solid $backgroundColor;
+    }
 
-  &::before {
-    left: $offset-before;
-    right: $offset-before;
-    height: 0;
-    transform: translate(0, $transform-y-under) rotate($rotation);
-    border: $border-width solid transparent;
-    border-top: none;
-    border-bottom: $border-bottom-width solid $borderColor;
-  }
+    &::before {
+      left: $offset-before;
+      right: $offset-before;
+      height: 0;
+      transform: translateY($transform-y-under) rotate($rotation);
+      border: $border-width solid transparent;
+      border-top: none;
+      border-bottom: $border-bottom-width solid $borderColor;
+    }
 }

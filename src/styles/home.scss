@@ -1,23 +1,29 @@
 
 #welcome {
   display: flex;
+  flex-direction: column;
+  justify-self: center;
   position: relative;
   animation: slideIn 1s ease-out;
-  justify-content: center;
-  margin: 4rem;
-}
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  color: $purple;
+  width: fit-content;
+  text-shadow: 0 0 15px $purple;
 
-#welcome::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 50%;
-  width: 50%;
-  height: 4px;
-  background: $purple;
-  transform: skewX(-20deg) translate(50%);
-  transform-origin: left;
-  box-shadow: 0 0 10px #a44fff;
+  .top {
+    position: absolute !important;
+    width: 100%;
+    top: 50%;
+    @include trapezoid(5rem, 4.2rem, -95%, -94%, -4.5rem, -4.85rem, $silver, 0deg, $whiteish);
+  }
+  
+  .bottom {
+    position: absolute !important;
+    width: 100%;
+    bottom: -35px;
+    @include trapezoid(5rem, 4.2rem, -95%, -94%, -4.5rem, -4.85rem, $silver, 180deg, $whiteish, 0.3rem);
+  }
 }
 
 .tournaments-article {

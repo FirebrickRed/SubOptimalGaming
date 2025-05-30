@@ -13,14 +13,21 @@
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
-	<link rel="preconnect" href="https://fonts.bunny.net">
-	<link href="https://fonts.bunny.net/css?family=anybody:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|audiowide:400&display=swap" rel="stylesheet" />
+	<!-- <link rel="preconnect" href="https://fonts.bunny.net">
+	<link href="https://fonts.bunny.net/css?family=anybody:100,200,300,400,500,600,700,800,900|audiowide:400&display=swap" rel="stylesheet" /> -->
+	<!-- <link href="https://fonts.bunny.net/css?family=anybody:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|audiowide:400&display=swap" rel="stylesheet" /> -->
 	<!-- Load the Twitch embed JavaScript file -->
 	<script src="https://embed.twitch.tv/embed/v1.js"></script>
 </svelte:head>
 
 <div>
-	<h1 id="welcome">Welcome to SOG</h1>
+	<h1 id="welcome">
+		<span class='top' />
+		<span class='text'>
+			Welcome to SOG
+		</span>	
+		<span class='bottom' />
+	</h1>
 	<article class="tournaments-article">
 		<h2>Upcoming Tournaments</h2>
 		<p>None Schedualed Currently</p>

@@ -1,0 +1,31 @@
+@import './mixins';
+
+footer {
+  display: none;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    background: $whiteish;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    border-top: $purple 6px solid;
+    box-shadow: 0 0 5px $purple;
+  }
+
+  .beginning {
+    width: 75px;
+    margin-bottom: 50px;
+    @include trapezoid(5rem, 4.25rem, -95%, -94%, -7.5rem, -7.85rem, $purple, 0deg, $whiteish);
+  }
+  
+  .end {
+    width: 75px;
+    margin-bottom: 50px;
+    @include trapezoid(5rem, 4.25rem, -95%, -94%, -7.5rem, -7.85rem, $purple, 0deg, $whiteish, $height: 0.3rem);
+  }
+}
