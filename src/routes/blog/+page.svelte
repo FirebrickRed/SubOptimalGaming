@@ -17,10 +17,11 @@
 <div>
 	{#each data.result as post}
 		<div class='post_block'>
-			<h2 class='title' 
+			<!-- <h2 class='title' 
 				on:click={() => toggleContent(post.path)}
 				on:keydown={() => toggleContent(post.path)}
-			>{post.title}</h2>
+			>{post.title}</h2> -->
+			<h2 class="title">{post.title}</h2>
 			{#if expandedPosts.includes(post.path)}
 				<div class='post_content'>{@html post.content}</div>
 			{/if}

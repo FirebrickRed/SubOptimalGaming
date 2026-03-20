@@ -1,6 +1,9 @@
 {
   "name": "suboptimalgaming",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
