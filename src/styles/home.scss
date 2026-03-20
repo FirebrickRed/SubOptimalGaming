@@ -1,81 +1,28 @@
 
-#welcome {
-  display: flex;
-  flex-direction: column;
-  justify-self: center;
-  position: relative;
-  animation: slideIn 1s ease-out;
-  margin-top: 5rem;
-  margin-bottom: 3rem;
+h1 {
   color: $purple;
-  width: fit-content;
-  text-shadow: 0 0 15px $purple;
-
-  .top {
-    position: absolute !important;
-    width: 100%;
-    top: 50%;
-    @include trapezoid(5rem, 4.2rem, -95%, -94%, -4.5rem, -4.85rem, $silver, 0deg, $whiteish);
-  }
-  
-  .bottom {
-    position: absolute !important;
-    width: 100%;
-    bottom: -35px;
-    @include trapezoid(5rem, 4.2rem, -95%, -94%, -4.5rem, -4.85rem, $silver, 180deg, $whiteish, 0.3rem);
-  }
+  justify-content: center;
+  text-shadow: 1px 1px 1px black;
 }
 
-.tournaments-article {
+section {
   h2 {
-    @include trapezoid(5rem, 4.25rem, -95%, -94%, -7.5rem, -7.85rem, $silver, 0deg, $purple);
-    margin: 3rem 2rem;
-    margin-bottom: 0;
     margin-bottom: -1px;
-    text-shadow: 0 0 10px black;
-    z-index: 1;
+    text-shadow: 1px 1px 2px black;
   }
 
   p {
     background: $purple;
-    text-shadow: 0 0 10px black;
+    text-shadow: 1px 1px 3px black;
     padding: 2rem;
     border-top: $silver 4px solid;
     border-bottom: $silver 4px solid;
     box-shadow: 0 0 5px $silver;
-    margin-top: 0;
-    margin-top: -1px;
-
-    @media screen and (min-width: 1024px) {
-      margin-top: 1px;
-    }
+    margin-top: -4px;
   }
 }
 
-.live-article {
+.live-section {
   margin-top: 4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
   text-align: right;
-
-  h2 {
-    @include trapezoid(5rem, 4.25rem, -95%, -94%, -7.5rem, -7.85rem, $silver, 0deg, $purple);
-    text-shadow: 0 0 10px black;
-    width: fit-content;
-    align-self: end;
-    margin-right: 2rem;
-    margin-bottom: 0;
-    z-index: 1;
-    box-shadow: 0 0 5px $silver;
-  }
-
-  p {
-    background: $purple;
-    text-shadow: 0 0 10px black;
-    padding: 2rem;
-    border-top: $silver 4px solid;
-    border-bottom: $silver 4px solid;
-    box-shadow: 0 0 5px $silver;
-  }
 }

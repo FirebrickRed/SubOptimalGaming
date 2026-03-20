@@ -1,4 +1,46 @@
 
+// New trapezoid mixin using clip-path.
+// $inset controls how much the narrow end tucks in (0% = rectangle, 50% = triangle).
+// $flip: false = narrow end on top, true = narrow end on bottom.
+// Use filter: drop-shadow() on the parent instead of box-shadow on the element itself.
+@mixin newTrapezoid(
+  $backgroundColor,
+  $borderColor: transparent,
+  $borderWidth: 4px,
+  $inset: 10%,
+  $flip: false
+) {
+  position: relative;
+
+  clip-path: polygon(calc(0% + #{$inset}) 0%, calc(100% - #{$inset}) 0%, 100% 100%, 0% 100%);
+
+  // @if $flip {
+  //   clip-path: polygon(0% 0%, 100% 0%, calc(100% - #{$inset}) 100%, #{$inset} 100%);
+  // } @else {
+  //   clip-path: polygon(#{$inset} 0%, calc(100% - #{$inset}) 0%, 100% 100%, 0% 100%);
+  // }
+
+  background-color: $backgroundColor;
+
+  // ::before acts as a border by sitting behind the element with the same
+  // clip-path but slightly expanded, so it isn't clipped away on the sides.
+  @if $borderColor != transparent {
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -$borderWidth;
+      background-color: $borderColor;
+      z-index: -1;
+
+      @if $flip {
+        clip-path: polygon(0% 0%, 100% 0%, calc(100% - #{$inset}) 100%, #{$inset} 100%);
+      } @else {
+        clip-path: polygon(#{$inset} 0%, calc(100% - #{$inset}) 0%, 100% 100%, 0% 100%);
+      }
+    }
+  }
+}
+
 @mixin trapezoid(
   $border-width: 5rem, 
   $border-bottom-width, 

@@ -8,32 +8,36 @@
 	// 	// parent: ["embed.example.com", "othersite.example.com"]
 	// 	parent: []
 	// });
+
+    import Trapezoid from "$lib/components/Trapezoid.svelte";
+
 </script>
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-	<!-- <link rel="preconnect" href="https://fonts.bunny.net">
-	<link href="https://fonts.bunny.net/css?family=anybody:100,200,300,400,500,600,700,800,900|audiowide:400&display=swap" rel="stylesheet" /> -->
-	<!-- <link href="https://fonts.bunny.net/css?family=anybody:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|audiowide:400&display=swap" rel="stylesheet" /> -->
+	<meta name="description" content="SubOptimalGaming Esports team website" />
 	<!-- Load the Twitch embed JavaScript file -->
 	<script src="https://embed.twitch.tv/embed/v1.js"></script>
 </svelte:head>
 
 <div>
-	<h1 id="welcome">
-		<span class='top' />
-		<span class='text'>
-			Welcome to SOG
-		</span>	
-		<span class='bottom' />
-	</h1>
-	<article class="tournaments-article">
-		<h2>Upcoming Tournaments</h2>
-		<p>None Schedualed Currently</p>
-	</article>
-	<article class="live-article">
-		<h2>Currently Live</h2>
+
+	<div style="display: flex; justify-content: center; margin: 2rem;">
+		<Trapezoid angleTopLeft angleTopRight angleBottomLeft angleBottomRight textAlign="center" backgroundColor="#EBEBEB" borderColor="#A3A3A3" shadow="drop-shadow(0px 0px 2px #EBEBEB)">
+			<h1>Welcome to SOG</h1>
+		</Trapezoid>
+	</div>
+
+	<section class="tournaments-section">
+		<Trapezoid angleTopRight backgroundColor="#6D3359" borderColor="#A3A3A3" borderLeft={false} borderBottom={false} inset="5rem" padding=".5rem 6rem .5rem 1rem" >
+			<h2>Upcoming Tournaments</h2>
+		</Trapezoid>
+		<p>None Scheduled Currently</p>
+	</section>
+	<section class="live-section">
+		<Trapezoid angleTopLeft backgroundColor="#6d3359" borderColor="#A3A3A3" borderRight={false} borderBottom={false} inset="5rem" padding=".5rem 1rem .5rem 5rem" style="display: block; margin-left: auto; width: fit-content">
+			<h2>Currently Live</h2>
+		</Trapezoid>
 		<p>No one is currently live :(</p>
 		<!-- <div>
 			<div id="twitch-embed"></div> -->
@@ -50,7 +54,7 @@
 				});
 			</script> -->
 		<!-- </div> -->
-	</article>
+	</section>
 	<!-- <h2>New Blog Posts</h2> -->
 </div>
 
